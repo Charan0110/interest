@@ -1,84 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-  <link rel="stylesheet" href="style.css" />
-  <title>Password Generator</title>
-</head>
-<body>
-  <main>
-    <div class="container">
-      <span class="alert">Copied to clipboard!</span>
+<html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="int.css">
 
-      <div class="top-bar">
-        <span class="password">Password Generator</span>
-        <span class="copy-btn"><i class="fa-solid fa-copy"></i></span>
-      </div>
+        <title>Interest Calculator</title>
+    </head>
 
-      <div class="form-container">
-        <form class="password-form">
-          <div class="slider-container">
-            <div class="label-container">
-              <label>Character Length</label>
-              <span class="char-length">10</span>
-            </div>
+    <body>
 
-            <input
-              type="range"
-              min="1"
-              max="30"
-              value="10"
-              class="slider-range"
-              id="charLength"
-            />
-          </div>
+        <header class="title">
+            <p id="title">Interest Calculator</p>
+        </header>
+        <nav class="nav">
+            <form class = "selector">
+                <div class = "I" id="simpleInterest">
+                    <label for="SI">Simple Interest</label>
+                    <input type="radio" id="SI" name="interestType">
+                </div>
+    
+                <div class = "I" id="compoundInterest">
+                    <label for="CI">Compound Interest</label>
+                    <input type="radio" id="CI" name="interestType">
+                </div>
+            </form>
+        </nav>
 
-          <div class="switch-container">
-            <span>Numbers</span>
-            <label class="toggle-switch">
-              <input type="checkbox" name="numbers-switch" />
-              <span class="toggle-slider round"></span>
-            </label>
-          </div>
+        <div class="middle">
+            <section id="inputs">
+                <form id="myForm">
+                    <div id="princi">
+                        <div class="Amount">
+                            <div id="AmountLabel">
+                                <label for="Amount">Amount</label>
+                            </div>
+                            <div id="number">
+                                <input type="number" id="Amount" name="Amount">
+                            </div>
+                        </div>
+                        
+                        <br>
+                        <div class="RoI">
+                            <div id="RoILabel">
+                                <label for="RoI">Rate of Interest</label>
+                            </div>
+                            <div id="number">
+                                <input type="number" id="RoI" name="RateType" >
+                            </div>
+                        </div>
+                    </div>
 
-          <div class="switch-container">
-            <span>Symbols</span>
-            <label class="toggle-switch">
-              <input type="checkbox" name="symbols-switch" />
-              <span class="toggle-slider round"></span>
-            </label>
-          </div>
+                    <br>
+                    <span id="time">Time Interval<p id="warning"></p></span>
+                    <div class="timeInterval">
+                        <div class="Months">
+                            <div id="MonthsLabel">
+                                <label for="Months" id="timeType">No. of Months</label>
+                            </div>
+                            <div id="number">
+                                <input type="number" id="Months" name="Time">
+                            </div>
+                        </div>
+    
+    
+                        
+                        <br><p id="or">(or)</p><br>
+        
+                        <div class="dates">
+                            <div class="loanTakenDate">
+                                <div id="loanTakenDateLabel">
+                                        <label for="loanTakenDate">Loan taken Date</label>
+                                        <p id="loanTakenDate_validity"></p>
+                                </div>
+                                <div id="number">
+                                    <input type="date" id="loanTakenDate" name="Time" placeholder="  DD-MM-YYYY">
+                                </div>
+                            </div>
+    
+                            <br>
+    
+                            <div class="loanRepaidDate">
+                                <div id="loanRepaidDateLabel">
+        
+                                        <label for="loanRepaidDate">Loan Repaid Date</label>
+                                        <p id="loanRepaidDate_validity"></p>
+                                    
+                                </div>
+                                <div id="number">
+                                    <input type="date" id="loanRepaidDate" name="Time" placeholder="  DD-MM-YYYY">
+                                </div>
+                            </div>   
+                        </div>    
+                    </div>
+                    
+                    <div class="submit">
+                        <input type="submit" id="calculate" value="calculate">
+                    </div>
+                    
+                </form>
+    
+            </section>
+            
+            <aside id="outputs">
+                
+                <div class="Result">
+                    <h1>Interest</h1>
+                    <div class="interestAmount">
+                        <h3 id="interestAmount">Interest Amount : 0.00</h3>
+                    </div>
+                    <br>
+                    <div class="totalAmount">
+                        <h3 id="totalAmount">Total Amount : 0.00</h3>
+                    </div>
+            
+                </div>
+            </aside>
+        </div>
+    </body>
 
-          <div class="switch-container">
-            <span>Uppercase</span>
-            <label class="toggle-switch">
-              <input type="checkbox" name="uppercase-switch" />
-              <span class="toggle-slider round"></span>
-            </label>
-          </div>
+    <script src="int.js"></script>
 
-          <button type="submit" class="submit-btn">
-            Generate
-            <span class="submit-icon"><i class="fa-sharp fa-solid fa-arrow-right"></i></span>
-          </button>
-        </form>
-      </div>
-    </div>
-  </main>
-  <script src="script.js"></script>
-</body>
 </html>
